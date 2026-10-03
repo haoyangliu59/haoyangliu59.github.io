@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Local preview with live reload at http://localhost:4000
+# Runs inside the conda env "torchenv" (override with CONDA_ENV=...), which provides
+# ruby 3.3, the site's gems, imagemagick and nbconvert. Extra args go to `jekyll serve`.
+set -eo pipefail
+
+cd "$(dirname "$0")/.."
+
+# Ruby takes its default encoding from the locale; without UTF-8 the non-ASCII
+# bibliography fails with "invalid byte sequence in US-ASCII" (same as Dockerfile/CI).
+export LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+
+CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || echo /opt/anaconda3)}"
+source "$CONDA_BASE/etc/profile.d/conda.sh"
+conda activate "${CONDA_ENV:-torchenv}"
+
+exec bundle exec jekyll serve --livereload "$@"
