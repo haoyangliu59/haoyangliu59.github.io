@@ -1,10 +1,11 @@
 # Education section of the home page, shown in this order (most recent first).
 # Fields: school (required), degree, period, location, description (Markdown/HTML: majors, GPA, honors...),
 #         url (school link), logo (file in assets/logos/, shown on the left)
+# In description, write a vertical bar as &#124; — a literal | is read as a Markdown table.
 - school: Washington University in St. Louis (WashU)
   degree: Undergraduate
   period: "2023 – 2027"
   location: St. Louis, MO
-  description: "Majors: Mathematics (Arts & Sciences) and Computer Science (McKelvey School of Engineering)<br>GPA: 3.98/4.00 · Dean's List"
+  description: "**Double Major:** Mathematics (Arts & Sciences) &#124; Computer Science (McKelvey School of Engineering)<br>GPA: 3.98/4.00 · Dean's List"
   url: https://washu.edu
   logo: washu-seal.webp # official seal from marcomm.washu.edu (use requires WashU MarComm permission)
