@@ -3,10 +3,10 @@ layout: default
 ---
 {% comment %}
   Single-page home layout (site-owned; al_folio_core has no equivalent).
-  Section order: about (page content) > news > publications > projects > internships > social icons.
+  Section order: about (page content) > news > publications > projects > internships > fun facts > social icons.
   The h2 ids below are the anchors used by the navbar in _includes/header.liquid.
   Content sources: _pages/about.md, _news/, _bibliography/papers.bib, _data/projects.yml,
-  _data/internships.yml, _data/socials.yml.
+  _data/internships.yml, _data/fun_facts.yml, _data/socials.yml.
 {% endcomment %}
 <div class="post">
   <header class="post-header">
@@ -117,6 +117,16 @@ layout: default
           {% endfor %}
         </table>
       </div>
+    {% endif %}
+
+    <!-- Fun facts (_data/fun_facts.yml, in file order) -->
+    {% if site.data.fun_facts and site.data.fun_facts.size > 0 %}
+      <h2 id="fun-facts">fun facts</h2>
+      <ul>
+        {% for fact in site.data.fun_facts %}
+          <li>{{ fact | markdownify | remove: '<p>' | remove: '</p>' | emojify }}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
 
     <!-- Social icons (_data/socials.yml) -->

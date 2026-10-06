@@ -31,10 +31,12 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 | publications | `_bibliography/papers.bib` (jekyll-scholar; `abbr`, `html`, `pdf`, `preview`, `bibtex_show` fields) |
 | projects     | `_data/projects.yml`                                               |
 | internships  | `_data/internships.yml`                                            |
+| fun facts    | `_data/fun_facts.yml` (list of Markdown strings: personal anecdotes) |
 | social icons | `_data/socials.yml` (Google Scholar, email, LinkedIn)              |
 
 - `_layouts/home.liquid` renders the sections; `_includes/header.liquid` is the navbar with anchor links
-  to them. The section ids in both files must match.
+  to them. A menu label links to `#<label | slugify>` (fun facts → `#fun-facts`), so the heading ids in
+  `home.liquid` must match.
 - `header.liquid` shadows the al_folio_core gem's include and is tracked in `.al-folio-overrides.yml`
   (`bundle exec al-folio upgrade overrides accept _includes/header.liquid` after intentional edits).
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
