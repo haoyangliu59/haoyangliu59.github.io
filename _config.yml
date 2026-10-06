@@ -4,7 +4,7 @@
 
 title: blank # the website title (if blank, full name will be used instead)
 first_name: Haoyang
-middle_name:
+middle_name: “Mike” # curly quotes on purpose: a straight " would break the <meta name="author"> attribute
 last_name: Liu
 contact_note: # optional short note shown under the social icons
 description: > # the ">" symbol means to ignore newlines until "footer_text:"

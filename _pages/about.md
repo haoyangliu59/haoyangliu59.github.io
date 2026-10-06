@@ -2,7 +2,6 @@
 layout: home
 title: about
 permalink: /
-subtitle: Affiliation · Research interests # TODO replace (shown under the name; HTML allowed)
 
 profile:
   align: right

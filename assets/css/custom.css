@@ -204,3 +204,8 @@ article > h2[id]::after {
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
+
+/* Space between the name and the bio (there is no subtitle line under the name). */
+.post-header {
+  margin-bottom: 1.25rem;
+}
