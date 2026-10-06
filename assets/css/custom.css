@@ -133,3 +133,32 @@ body.fixed-top-nav {
     transform: none;
   }
 }
+
+/* Entries with a logo on the left (education in _layouts/home.liquid): logo where the date
+ * column is in the other sections, then the name in bold and the details a little heavier than
+ * the theme's light (300) body text. */
+.entries td {
+  vertical-align: top;
+}
+
+.entries .entry-logo {
+  width: 20%;
+}
+
+.entries .entry-logo img {
+  display: block;
+  height: 4.5rem;
+  width: auto;
+}
+
+.entries .entry-title {
+  font-weight: 700;
+}
+
+.entries .entry-meta {
+  font-weight: 500;
+}
+
+.entries .entry-desc {
+  font-weight: 400;
+}

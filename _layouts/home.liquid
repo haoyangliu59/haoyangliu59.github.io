@@ -70,23 +70,31 @@ layout: default
     {% if site.data.education and site.data.education.size > 0 %}
       <h2 id="education">education</h2>
       <div class="table-responsive">
-        <table class="table table-sm table-borderless">
+        <table class="table table-sm table-borderless entries">
           {% for school in site.data.education %}
+            {% assign meta = '' | split: '' %}
+            {% if school.degree %}{% assign meta = meta | push: school.degree %}{% endif %}
+            {% if school.period %}{% assign meta = meta | push: school.period %}{% endif %}
+            {% if school.location %}{% assign meta = meta | push: school.location %}{% endif %}
             <tr>
-              <th scope="row" style="width: 20%; white-space: nowrap">{{ school.period }}</th>
+              <td class="entry-logo">
+                {% if school.logo %}
+                  <img src="{{ school.logo | prepend: '/assets/logos/' | relative_url }}" alt="{{ school.school }} logo">
+                {% endif %}
+              </td>
               <td>
-                <strong>
+                <div class="entry-title">
                   {% if school.url %}
                     <a href="{{ school.url }}">{{ school.school }}</a>
                   {% else %}
                     {{ school.school }}
                   {% endif %}
-                </strong>
-                {% if school.degree %}&mdash; {{ school.degree }}{% endif %}
-                {% if school.location %}&middot; {{ school.location }}{% endif %}
+                </div>
+                {% if meta.size > 0 %}
+                  <div class="entry-meta">{{ meta | join: ' &middot; ' }}</div>
+                {% endif %}
                 {% if school.description %}
-                  <br>
-                  {{ school.description | markdownify | remove: '<p>' | remove: '</p>' }}
+                  <div class="entry-desc">{{ school.description | markdownify | remove: '<p>' | remove: '</p>' }}</div>
                 {% endif %}
               </td>
             </tr>
