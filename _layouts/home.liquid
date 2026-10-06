@@ -4,10 +4,10 @@ layout: default
 {% comment %}
   Single-page home layout (site-owned; al_folio_core has no equivalent).
   Section order: about (page content, social icons under the photo) > news > education > publications > projects
-  > internships > fun facts.
+  > internships > personal > visitor map.
   The h2 ids below are the anchors used by the navbar in _includes/header.liquid.
   Content sources: _pages/about.md, _news/, _data/education.yml, _bibliography/papers.bib, _data/projects.yml,
-  _data/internships.yml, _data/fun_facts.yml, _data/socials.yml.
+  _data/internships.yml, _data/personal.yml, _data/socials.yml, visitor_map in _config.yml.
 {% endcomment %}
 <div class="post">
   <header class="post-header">
@@ -173,14 +173,29 @@ layout: default
       </div>
     {% endif %}
 
-    <!-- Fun facts (_data/fun_facts.yml, in file order) -->
-    {% if site.data.fun_facts and site.data.fun_facts.size > 0 %}
-      <h2 id="fun-facts">fun facts</h2>
+    <!-- Personal (_data/personal.yml, in file order) -->
+    {% if site.data.personal and site.data.personal.size > 0 %}
+      <h2 id="personal">personal</h2>
       <ul>
-        {% for fact in site.data.fun_facts %}
+        {% for fact in site.data.personal %}
           <li>{{ fact | markdownify | remove: '<p>' | remove: '</p>' | emojify }}</li>
         {% endfor %}
       </ul>
+    {% endif %}
+
+    <!-- Visitor map (mapmyvisitors.com; script URL is `visitor_map` in _config.yml). The widget script
+         locates itself by id, which differs between the flat map and the 3D globe. -->
+    {% if site.visitor_map %}
+      {% assign visitor_map_src = site.visitor_map | replace_first: 'http://', 'https://' %}
+      {% if visitor_map_src contains '//' %}{% else %}{% assign visitor_map_src = visitor_map_src | prepend: 'https://' %}{% endif %}
+      {% if visitor_map_src contains 'https:' %}{% else %}{% assign visitor_map_src = visitor_map_src | prepend: 'https:' %}{% endif %}
+      <div class="visitor-map">
+        <script
+          type="text/javascript"
+          id="{% if visitor_map_src contains 'globe.js' %}mmvst_globe{% else %}mapmyvisitors{% endif %}"
+          src="{{ visitor_map_src }}"
+        ></script>
+      </div>
     {% endif %}
   </article>
 </div>

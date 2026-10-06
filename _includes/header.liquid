@@ -3,8 +3,8 @@
   the menu links to sections of the home page (ids set in _layouts/home.liquid)
   instead of listing pages with `nav: true`. Tracked in .al-folio-overrides.yml.
 {% endcomment %}
-{% comment %} Menu labels; each links to the heading whose id is the slugified label (fun facts -> #fun-facts). {% endcomment %}
-{% assign sections = 'about,news,education,publications,projects,internships,fun facts' | split: ',' %}
+{% comment %} Menu labels; each links to the heading whose id is the slugified label (e.g. fun facts -> #fun-facts). {% endcomment %}
+{% assign sections = 'about,news,education,publications,projects,internships,personal' | split: ',' %}
 <!-- Site-specific styles (after the theme's CSS so they take precedence) -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url | bust_file_cache }}">
 <header>

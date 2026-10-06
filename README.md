@@ -8,4 +8,4 @@ To preview locally, run `bin/serve` and open http://localhost:4000.
 
 Content lives in `_pages/about.md` (bio), `_news/` (news), `_data/education.yml`,
 `_bibliography/papers.bib` (publications), `_data/projects.yml`, `_data/internships.yml`,
-`_data/fun_facts.yml` and `_data/socials.yml`.
+`_data/personal.yml` and `_data/socials.yml`.
