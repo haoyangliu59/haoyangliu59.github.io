@@ -3,9 +3,10 @@ layout: default
 ---
 {% comment %}
   Single-page home layout (site-owned; al_folio_core has no equivalent).
-  Section order: about (page content) > news > publications > projects > internships > fun facts > social icons.
+  Section order: about (page content, social icons under the photo) > news > education > publications > projects
+  > internships > fun facts.
   The h2 ids below are the anchors used by the navbar in _includes/header.liquid.
-  Content sources: _pages/about.md, _news/, _bibliography/papers.bib, _data/projects.yml,
+  Content sources: _pages/about.md, _news/, _data/education.yml, _bibliography/papers.bib, _data/projects.yml,
   _data/internships.yml, _data/fun_facts.yml, _data/socials.yml.
 {% endcomment %}
 <div class="post">
@@ -22,6 +23,18 @@ layout: default
   </header>
 
   <article>
+    <!-- Social icons (_data/socials.yml): under the profile photo, or under the bio when there is no profile -->
+    {% capture social_icons %}
+      {% if page.social %}
+        <div class="social">
+          <div class="contact-icons">{% social_links %}</div>
+          {% if site.contact_note %}
+            <div class="contact-note">{{ site.contact_note }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endcapture %}
+
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
@@ -37,6 +50,7 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
+        {{ social_icons }}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
@@ -44,11 +58,41 @@ layout: default
     {% endif %}
 
     <div class="clearfix">{{ content }}</div>
+    {% unless page.profile %}{{ social_icons }}{% endunless %}
 
     <!-- News (_news/, newest first; every item should be `inline: true`) -->
     {% if page.announcements and page.announcements.enabled %}
       <h2 id="news">news</h2>
       {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Education (_data/education.yml, in file order) -->
+    {% if site.data.education and site.data.education.size > 0 %}
+      <h2 id="education">education</h2>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless">
+          {% for school in site.data.education %}
+            <tr>
+              <th scope="row" style="width: 20%; white-space: nowrap">{{ school.period }}</th>
+              <td>
+                <strong>
+                  {% if school.url %}
+                    <a href="{{ school.url }}">{{ school.school }}</a>
+                  {% else %}
+                    {{ school.school }}
+                  {% endif %}
+                </strong>
+                {% if school.degree %}&mdash; {{ school.degree }}{% endif %}
+                {% if school.location %}&middot; {{ school.location }}{% endif %}
+                {% if school.description %}
+                  <br>
+                  {{ school.description | markdownify | remove: '<p>' | remove: '</p>' }}
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
     {% endif %}
 
     <!-- Publications (_bibliography/papers.bib, grouped by year) -->
@@ -127,15 +171,6 @@ layout: default
           <li>{{ fact | markdownify | remove: '<p>' | remove: '</p>' | emojify }}</li>
         {% endfor %}
       </ul>
-    {% endif %}
-
-    <!-- Social icons (_data/socials.yml) -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
     {% endif %}
   </article>
 </div>

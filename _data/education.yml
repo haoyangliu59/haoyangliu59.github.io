@@ -1,0 +1,14 @@
+# Education section of the home page, shown in this order (most recent first).
+# Fields: school (required), degree, period, location, description (Markdown: advisor, thesis, honors...),
+#         url (school link)
+- school: "University name (TODO)"
+  degree: "Ph.D. in Field"
+  period: "2024 – present"
+  location: City, Country
+  description: "Advisor: Prof. Name. Research on ..."
+  url: https://example.com
+
+- school: "Another university (TODO)"
+  degree: "B.S. in Field"
+  period: "2020 – 2024"
+  location: City, Country

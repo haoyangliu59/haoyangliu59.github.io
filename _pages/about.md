@@ -8,10 +8,8 @@ profile:
   align: right
   image: prof_pic.jpg # file in assets/img/
   image_circular: false # crops the image to make it circular
-  more_info: > # optional lines shown under the photo; delete to hide
-    <p>City, Country</p>
 
-social: true # social icons at the bottom of the page (edit _data/socials.yml)
+social: true # social icons under the profile photo (edit _data/socials.yml)
 
 announcements:
   enabled: true # news section (items live in _news/)
