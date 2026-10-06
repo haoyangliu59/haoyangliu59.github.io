@@ -4,6 +4,8 @@
   instead of listing pages with `nav: true`. Tracked in .al-folio-overrides.yml.
 {% endcomment %}
 {% assign sections = 'about,news,publications,projects,internships' | split: ',' %}
+<!-- Site-specific styles (after the theme's CSS so they take precedence) -->
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url | bust_file_cache }}">
 <header>
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
