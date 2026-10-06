@@ -1,0 +1,14 @@
+# Projects section of the home page, shown in this order.
+# Fields: title (required), period, description (Markdown), url (title links there),
+#         links (optional list of {text, url} buttons, e.g. code / paper / demo)
+- title: "Project title (TODO)"
+  period: "2025"
+  description: "One or two sentences on what the project is and what you did."
+  url: https://github.com/haoyangliu59
+  links:
+    - text: code
+      url: https://github.com/haoyangliu59
+
+- title: "Another project (TODO)"
+  period: "2024"
+  description: "Short description."

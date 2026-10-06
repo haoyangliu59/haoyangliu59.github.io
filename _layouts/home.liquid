@@ -1,0 +1,131 @@
+---
+layout: default
+---
+{% comment %}
+  Single-page home layout (site-owned; al_folio_core has no equivalent).
+  Section order: about (page content) > news > publications > projects > internships > social icons.
+  The h2 ids below are the anchors used by the navbar in _includes/header.liquid.
+  Content sources: _pages/about.md, _news/, _bibliography/papers.bib, _data/projects.yml,
+  _data/internships.yml, _data/socials.yml.
+{% endcomment %}
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title" id="about">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+  </header>
+
+  <article>
+    {% if page.profile %}
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        {% if page.profile.image %}
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% if page.profile.image_circular %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+          {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+          {% endif %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            cache_bust=true
+          %}
+        {% endif %}
+        {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="clearfix">{{ content }}</div>
+
+    <!-- News (_news/, newest first; every item should be `inline: true`) -->
+    {% if page.announcements and page.announcements.enabled %}
+      <h2 id="news">news</h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Publications (_bibliography/papers.bib, grouped by year) -->
+    <h2 id="publications">publications</h2>
+    <div class="publications">
+      {% bibliography %}
+    </div>
+
+    <!-- Projects (_data/projects.yml, in file order) -->
+    {% if site.data.projects and site.data.projects.size > 0 %}
+      <h2 id="projects">projects</h2>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless">
+          {% for project in site.data.projects %}
+            <tr>
+              <th scope="row" style="width: 20%; white-space: nowrap">{{ project.period }}</th>
+              <td>
+                <strong>
+                  {% if project.url %}
+                    <a href="{{ project.url }}">{{ project.title }}</a>
+                  {% else %}
+                    {{ project.title }}
+                  {% endif %}
+                </strong>
+                {% if project.description %}
+                  <br>
+                  {{ project.description | markdownify | remove: '<p>' | remove: '</p>' }}
+                {% endif %}
+                {% if project.links %}
+                  <br>
+                  {% for link in project.links -%}
+                    <a href="{{ link.url }}">{{ link.text }}</a>{% unless forloop.last %} &middot; {% endunless %}
+                  {%- endfor %}
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endif %}
+
+    <!-- Internships (_data/internships.yml, in file order) -->
+    {% if site.data.internships and site.data.internships.size > 0 %}
+      <h2 id="internships">internships</h2>
+      <div class="table-responsive">
+        <table class="table table-sm table-borderless">
+          {% for job in site.data.internships %}
+            <tr>
+              <th scope="row" style="width: 20%; white-space: nowrap">{{ job.period }}</th>
+              <td>
+                <strong>
+                  {% if job.url %}
+                    <a href="{{ job.url }}">{{ job.company }}</a>
+                  {% else %}
+                    {{ job.company }}
+                  {% endif %}
+                </strong>
+                {% if job.role %}&mdash; {{ job.role }}{% endif %}
+                {% if job.location %}&middot; {{ job.location }}{% endif %}
+                {% if job.description %}
+                  <br>
+                  {{ job.description | markdownify | remove: '<p>' | remove: '</p>' }}
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endif %}
+
+    <!-- Social icons (_data/socials.yml) -->
+    {% if page.social %}
+      <div class="social">
+        <div class="contact-icons">{% social_links %}</div>
+
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
+    {% endif %}
+  </article>
+</div>

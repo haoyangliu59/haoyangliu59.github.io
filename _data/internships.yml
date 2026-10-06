@@ -1,0 +1,14 @@
+# Internships section of the home page, shown in this order (newest first).
+# Fields: company (required), role, period, location, description (Markdown), url (company link)
+- company: "Company name (TODO)"
+  role: Research Intern
+  period: "Jun 2025 – Aug 2025"
+  location: City, Country
+  description: "What you worked on and what came out of it."
+  url: https://example.com
+
+- company: "Another company (TODO)"
+  role: Software Engineering Intern
+  period: "Jun 2024 – Aug 2024"
+  location: City, Country
+  description: "Short description."
