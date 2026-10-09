@@ -1,0 +1,147 @@
+/* Site-specific styles, loaded after the theme's CSS (see _includes/header.liquid). */
+
+/* Social icons under the profile photo (_layouts/home.liquid). The theme sizes them at 4rem for
+ * their original bottom-of-page placement; in the photo column they are smaller. */
+.profile .social {
+  margin-bottom: 1rem;
+}
+
+.profile .social .contact-icons {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* Navbar: collapse into the menu button below 768px instead of the theme's 576px, so the seven
+ * section links never wrap. The header override uses .navbar-expand-md; these rules mirror the
+ * theme's .navbar-expand-sm ones (tailwind.css) and its collapsed-menu styles (_navbar.scss) at
+ * the md breakpoint. */
+@layer components {
+  /* Same cascade layer as the theme's `.collapse { display: none !important }`: for !important
+   * declarations a layered rule beats an unlayered one, so this must live in the layer too. */
+  @media (min-width: 768px) {
+    .navbar-expand-md .navbar-collapse {
+      flex-basis: auto;
+      width: auto;
+      display: flex !important;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding: 0.5rem;
+  }
+  .navbar-expand-md .navbar-toggler {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-expand-md > .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navbar .navbar-toggler-main {
+    margin-left: auto;
+  }
+  .navbar .navbar-collapse-main {
+    text-align: left;
+  }
+  .navbar .navbar-menu-list {
+    margin-left: 0;
+    align-items: flex-start;
+    width: 100%;
+  }
+  #light-toggle {
+    transform: none;
+  }
+}
+
+/* Entries with a logo on the left (education in _layouts/home.liquid): logo where the date
+ * column is in the other sections, then the name in bold and the details a little heavier than
+ * the theme's light (300) body text. */
+.entries td {
+  vertical-align: top;
+}
+
+.entries .entry-logo {
+  width: 20%;
+}
+
+.entries .entry-logo img {
+  display: block;
+  height: 4.5rem;
+  width: auto;
+}
+
+.entries .entry-title {
+  font-weight: 700;
+}
+
+.entries .entry-meta {
+  font-weight: 500;
+}
+
+.entries .entry-desc {
+  font-weight: 400;
+}
+
+/* Section headings on the home page (h2 with an id in _layouts/home.liquid): bold uppercase titles
+ * with a rule underneath, in place of the theme's large light (300) headings. */
+article > h2[id] {
+  position: relative;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--global-text-color) 22%, transparent);
+  margin-top: 2.5rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Short accent bar in the theme colour over the start of the rule. */
+article > h2[id]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 2.5rem;
+  height: 3px;
+  background: var(--global-theme-color);
+}
+
+/* Publication year labels: small bold labels instead of the theme's large grey right-aligned years
+ * on their own rule, which doubled up with the section rule above. */
+.publications {
+  margin-top: 0;
+}
+
+.publications h2.bibliography {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--global-text-color-light);
+  text-align: left;
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Space between the name and the bio (there is no subtitle line under the name). */
+.post-header {
+  margin-bottom: 1.25rem;
+}
+
+/* Visitor map widget at the bottom of the home page (visitor_map in _config.yml). */
+.visitor-map {
+  max-width: 22rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
