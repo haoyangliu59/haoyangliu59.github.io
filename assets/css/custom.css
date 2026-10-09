@@ -138,10 +138,3 @@ article > h2[id]::after {
 .post-header {
   margin-bottom: 1.25rem;
 }
-
-/* Visitor map widget at the bottom of the home page (visitor_map in _config.yml). */
-.visitor-map {
-  max-width: 22rem;
-  margin: 2.5rem auto 0;
-  text-align: center;
-}
