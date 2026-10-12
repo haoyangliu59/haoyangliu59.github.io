@@ -43,6 +43,11 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
 - Profile photo: `assets/img/prof_pic.jpg`.
+- Email: `_data/socials.yml` stores it as `email_user` + `email_domain` (the repo is public);
+  `_plugins/socials_email.rb` joins them at build time, and `protect_email: true` (al_email_protect) keeps
+  the address and any `mailto:` out of the HTML — clicking the icon copies it. After changes, build and check
+  that `grep -r "@wustl.edu" _site` finds nothing.
+- `robots.txt` allows all search engines but disallows AI-training crawlers (GPTBot, ClaudeBot, CCBot, ...).
 - Logos for list entries (e.g. the education `logo:` field) live in `assets/logos/`, outside `assets/img/`, so
   jekyll-imagemagick does not generate unused responsive copies. `washu-seal.webp` is the official WashU
   seal (from marcomm.washu.edu); WashU allows the seal only with MarComm's prior permission.

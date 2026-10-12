@@ -1,7 +1,23 @@
 ---
 permalink: /robots.txt
 ---
+# Search engines (Google, Bing, ...) may crawl everything.
 User-agent: *
 Disallow:
+
+# Bulk crawlers that collect pages for AI training datasets. Only crawlers that honour robots.txt
+# obey this; search engines and AI search features use other user agents and are not affected.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: cohere-training-data-crawler
+Disallow: /
 
 Sitemap: {{ site.baseurl | prepend: site.url }}/sitemap.xml

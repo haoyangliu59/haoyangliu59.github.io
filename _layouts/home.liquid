@@ -29,7 +29,15 @@ layout: default
     {% capture social_icons %}
       {% if page.social %}
         <div class="social">
-          <div class="contact-icons">{% social_links %}</div>
+          {% capture social_links_html %}{% social_links %}{% endcapture %}
+          {% comment %}
+            jekyll-socials emits a plain mailto: link; al_email_protect rewrites it (protect_email). The rewrite
+            (al_email_protect 1.0.1) folds the link's other attributes into its class value, so the title is
+            moved back out to keep the hover text and accessible name.
+          {% endcomment %}
+          {% assign social_links_html = social_links_html | al_email_protect_html %}
+          {% assign social_links_html = social_links_html | replace: "al-email-protect title='Email'", 'al-email-protect" title="Email' %}
+          <div class="contact-icons">{{ social_links_html }}</div>
           {% if site.contact_note %}
             <div class="contact-note">{{ site.contact_note }}</div>
           {% endif %}
