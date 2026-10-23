@@ -1,5 +1,19 @@
 /* Site-specific styles, loaded after the theme's CSS (see _includes/header.liquid). */
 
+/* Accent colour: navy instead of the theme's purple (light) / cyan (dark). Drives links, publication
+ * badges, the heading accent bar and hover states. Dark mode uses a lighter navy so it stays readable
+ * on the dark background. */
+:root {
+  --global-theme-color: #1d3c78;
+  --global-hover-color: #1d3c78;
+  --global-code-bg-color: rgba(29, 60, 120, 0.05);
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #7ea6e0;
+  --global-hover-color: #7ea6e0;
+}
+
 /* Social icons (_layouts/home.liquid): under the profile photo, or under the bio when there is no
  * photo. The theme sizes them at 4rem for its bottom-of-page placement; here they are smaller. */
 .post .social {

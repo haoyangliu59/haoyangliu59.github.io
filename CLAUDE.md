@@ -55,7 +55,8 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 - Logos for list entries (e.g. the education `logo:` field) live in `assets/logos/`, outside `assets/img/`, so
   jekyll-imagemagick does not generate unused responsive copies. `washu-seal.webp` is the official WashU
   seal (from marcomm.washu.edu); WashU allows the seal only with MarComm's prior permission.
-- `assets/css/custom.css` (linked from `header.liquid`) holds all site CSS: the icon size under the photo,
+- `assets/css/custom.css` (linked from `header.liquid`) holds all site CSS: the navy accent colour
+  (`--global-theme-color` #1d3c78 light / #7ea6e0 dark, replacing the theme's purple), the icon size under the photo,
   section heading style, and the navbar collapse breakpoint moved from 576px to 768px (`navbar-expand-md`).
   Page size is the theme default (16px text, 930px column); large-screen scaling was tried and removed at
   the user's request.
