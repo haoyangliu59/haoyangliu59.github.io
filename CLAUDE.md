@@ -42,7 +42,8 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   (`bundle exec al-folio upgrade overrides accept _includes/header.liquid` after intentional edits).
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
-- Profile photo: `assets/img/prof_pic.jpg`.
+- Profile photo: none for now (the Einstein demo photo was removed); `_pages/about.md` has commented-out
+  `profile:` settings to add one. Without a photo the social icons render under the bio.
 - Email: `_data/socials.yml` stores it as `email_user` + `email_domain` (the repo is public);
   `_plugins/socials_email.rb` joins them at build time, and `protect_email: true` (al_email_protect) keeps
   the address and any `mailto:` out of the HTML — clicking the icon copies it. After changes, build and check
