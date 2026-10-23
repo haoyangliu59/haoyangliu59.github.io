@@ -1,14 +1,19 @@
 /* Site-specific styles, loaded after the theme's CSS (see _includes/header.liquid). */
 
-/* Social icons under the profile photo (_layouts/home.liquid). The theme sizes them at 4rem for
- * their original bottom-of-page placement; in the photo column they are smaller. */
-.profile .social {
+/* Social icons (_layouts/home.liquid): under the profile photo, or under the bio when there is no
+ * photo. The theme sizes them at 4rem for its bottom-of-page placement; here they are smaller. */
+.post .social {
   margin-bottom: 1rem;
 }
 
-.profile .social .contact-icons {
+.post .social .contact-icons {
   font-size: 2.5rem;
   line-height: 1;
+}
+
+/* Under the bio, line the icons up with the text instead of centring them. */
+article > .social {
+  text-align: left;
 }
 
 /* Navbar: collapse into the menu button below 768px instead of the theme's 576px, so the seven
