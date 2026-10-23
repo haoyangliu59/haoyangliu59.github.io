@@ -3,14 +3,12 @@ layout: home
 title: about
 permalink: /
 
-# To show a photo on the right, put it in assets/img/ and add:
-# profile:
-#   align: right
-#   image: prof_pic.jpg
-#   image_circular: false # crops the image to make it circular
-# Without a profile photo, the social icons appear under the bio instead.
+profile:
+  align: right
+  image: avatar-placeholder.svg # file in assets/img/; replace with a real photo (resize to ~800px wide first)
+  image_circular: false # crops the image to make it circular
 
-social: true # social icons (edit _data/socials.yml)
+social: true # social icons under the profile photo (edit _data/socials.yml)
 
 announcements:
   enabled: true # news section (items live in _news/)

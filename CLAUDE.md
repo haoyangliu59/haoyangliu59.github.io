@@ -42,8 +42,8 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   (`bundle exec al-folio upgrade overrides accept _includes/header.liquid` after intentional edits).
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
-- Profile photo: none for now (the Einstein demo photo was removed); `_pages/about.md` has commented-out
-  `profile:` settings to add one. Without a photo the social icons render under the bio.
+- Profile photo: `assets/img/avatar-placeholder.svg` (grey silhouette, 4:5) until the user sends a real photo;
+  the user wants a placeholder rather than no photo. Swap `profile.image` in `_pages/about.md`.
 - `imagemagick.enabled: false` and CI does not install ImageMagick or Python (keeps builds ~1 min and off
   slow Ubuntu mirrors). When adding a photo, resize it before committing (e.g. ~800px wide) instead.
   CI runs on `ubuntu-24.04` (pinned; `ubuntu-latest` = 26.04 lacks prebuilt Ruby 3.3.5).
