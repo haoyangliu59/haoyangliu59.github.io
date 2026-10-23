@@ -44,6 +44,9 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
 - Profile photo: none for now (the Einstein demo photo was removed); `_pages/about.md` has commented-out
   `profile:` settings to add one. Without a photo the social icons render under the bio.
+- `imagemagick.enabled: false` and CI does not install ImageMagick or Python (keeps builds ~1 min and off
+  slow Ubuntu mirrors). When adding a photo, resize it before committing (e.g. ~800px wide) instead.
+  CI runs on `ubuntu-24.04` (pinned; `ubuntu-latest` = 26.04 lacks prebuilt Ruby 3.3.5).
 - Email: `_data/socials.yml` stores it as `email_user` + `email_domain` (the repo is public);
   `_plugins/socials_email.rb` joins them at build time, and `protect_email: true` (al_email_protect) keeps
   the address and any `mailto:` out of the HTML — clicking the icon copies it. After changes, build and check
