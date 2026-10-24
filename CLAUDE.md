@@ -31,7 +31,6 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 | education    | `_data/education.yml`                                              |
 | publications | `_bibliography/papers.bib` (jekyll-scholar; `abbr`, `html`, `pdf`, `preview`, `bibtex_show` fields) |
 | projects     | `_data/projects.yml`                                               |
-| internships  | `_data/internships.yml`                                            |
 | personal     | `_data/personal.yml` (list of Markdown strings: personal anecdotes)  |
 | social icons | `_data/socials.yml` (Google Scholar, email, LinkedIn), shown under the profile photo |
 
