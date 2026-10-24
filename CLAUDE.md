@@ -29,7 +29,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 | about        | `_pages/about.md` (front matter: subtitle, profile photo; body: bio) |
 | news         | `_news/*.md`, one file per item, `inline: true`, ordered by `date` |
 | education    | `_data/education.yml`                                              |
-| publications | `_bibliography/papers.bib` (jekyll-scholar; `abbr`, `html`, `pdf`, `preview`, `bibtex_show` fields) |
+| publications and preprints | `_bibliography/papers.bib` (jekyll-scholar; see the field list at its top) |
 | projects     | `_data/projects.yml`                                               |
 | personal     | `_data/personal.yml` (list of Markdown strings: personal anecdotes)  |
 | social icons | `_data/socials.yml` (Google Scholar, email, LinkedIn), shown under the profile photo |
@@ -37,8 +37,10 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 - `_layouts/home.liquid` renders the sections; `_includes/header.liquid` is the navbar with anchor links
   to them. A menu label links to `#<label | slugify>` (e.g. fun facts → `#fun-facts`), so the heading ids in
   `home.liquid` must match.
-- `header.liquid` shadows the al_folio_core gem's include and is tracked in `.al-folio-overrides.yml`
-  (`bundle exec al-folio upgrade overrides accept _includes/header.liquid` after intentional edits).
+- `_includes/header.liquid` and `_layouts/bib.liquid` shadow al_folio_core files and are tracked in
+  `.al-folio-overrides.yml` (`bundle exec al-folio upgrade overrides accept <path>` after intentional edits).
+  `bib.liquid` adds `abbr2`/`abbr2_url` (second badge) and `venue_link`/`venue_link_name` (custom button);
+  those fields are in `filtered_bibtex_keywords`. Co-first authors: `{Liu*, Haoyang}` + `note`.
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
 - Profile photo: `assets/img/avatar-placeholder.svg` (grey silhouette, 4:5) until the user sends a real photo;

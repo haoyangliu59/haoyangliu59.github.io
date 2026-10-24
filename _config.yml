@@ -360,6 +360,10 @@ enable_publication_badges:
 filtered_bibtex_keywords:
   [
     abbr,
+    abbr2,
+    abbr2_url,
+    venue_link,
+    venue_link_name,
     abstract,
     additional_info,
     altmetric,
