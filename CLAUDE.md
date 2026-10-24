@@ -1,7 +1,14 @@
 # CLAUDE.md
 
 Personal single-page website of Haoyang Liu, built on the [al-folio](https://github.com/alshedivat/al-folio) v1.2 starter (Jekyll).
-Live at https://haoyangliu59.github.io, source at https://github.com/haoyangliu59/haoyangliu59.github.io.
+Address https://haoyangliu59.github.io, source at https://github.com/haoyangliu59/haoyangliu59.github.io.
+
+**Currently OFFLINE (since 2026-10-24, at the user's request):** the repo was made private, which stops GitHub
+Pages serving it on the free plan (the site returns 404). Pages can't simply be disabled on a user-site repo
+(API returns 422). Everything is kept: main + gh-pages branches, history, Pages config (source gh-pages, /).
+To bring it back: `gh repo edit haoyangliu59/haoyangliu59.github.io --visibility public
+--accept-visibility-change-consequences`, then check `gh api repos/haoyangliu59/haoyangliu59.github.io/pages`
+(re-create with source gh-pages if missing) and that the site loads. Only do this when the user asks.
 
 ## Workflow
 
