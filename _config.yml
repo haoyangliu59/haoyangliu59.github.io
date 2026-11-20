@@ -362,6 +362,8 @@ filtered_bibtex_keywords:
     abbr,
     abbr2,
     abbr2_url,
+    abbr3,
+    abbr3_url,
     venue_link,
     venue_link_name,
     abstract,

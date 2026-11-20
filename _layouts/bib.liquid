@@ -3,7 +3,8 @@
 {%- comment -%}
   Local override of al_folio_core's _layouts/bib.liquid (tracked in .al-folio-overrides.yml). Additions,
   each marked "Local addition" below:
-  - abbr2 (+ optional abbr2_url): a second badge under the first, e.g. arXiv + NeurIPS 2026.
+  - abbr2, abbr3 (+ optional abbr2_url, abbr3_url): extra badges under the first, e.g. arXiv + NeurIPS 2026
+    + Website.
   - venue_link + venue_link_name: one extra button with a custom label, e.g. NeurIPS or OpenReview.
   These fields are listed in filtered_bibtex_keywords in _config.yml so the Bib popup hides them.
 {%- endcomment -%}
@@ -32,23 +33,28 @@
           <abbr class="badge rounded w-100">{{ entry.abbr }}</abbr>
         {% endif %}
       {% endif %}
-      {%- comment -%} Local addition: optional second badge under the first. {%- endcomment -%}
-      {%- if entry.abbr2 -%}
-        {%- assign abbr2_url = entry.abbr2_url | default: site.data.venues[entry.abbr2].url -%}
-        {%- assign abbr2_color = site.data.venues[entry.abbr2].color -%}
-        <abbr
-          class="badge rounded w-100"
-          {% if abbr2_color != blank %}
-            style="background-color:{{ abbr2_color }}"
-          {% endif -%}
-        >
-          {% if abbr2_url %}
-            <a href="{{ abbr2_url }}">{{ entry.abbr2 }}</a>
-          {% else %}
-            <div>{{- entry.abbr2 -}}</div>
-          {% endif %}
-        </abbr>
-      {%- endif %}
+      {%- comment -%} Local addition: optional extra badges under the first (abbr2, abbr3). {%- endcomment -%}
+      {%- assign extra_badge_fields = 'abbr2,abbr3' | split: ',' -%}
+      {%- for badge_field in extra_badge_fields -%}
+        {%- assign badge_label = entry[badge_field] -%}
+        {%- if badge_label -%}
+          {%- assign badge_url_field = badge_field | append: '_url' -%}
+          {%- assign badge_url = entry[badge_url_field] | default: site.data.venues[badge_label].url -%}
+          {%- assign badge_color = site.data.venues[badge_label].color -%}
+          <abbr
+            class="badge rounded w-100"
+            {% if badge_color != blank %}
+              style="background-color:{{ badge_color }}"
+            {% endif -%}
+          >
+            {% if badge_url %}
+              <a href="{{ badge_url }}">{{ badge_label }}</a>
+            {% else %}
+              <div>{{- badge_label -}}</div>
+            {% endif %}
+          </abbr>
+        {%- endif -%}
+      {%- endfor %}
       {% if entry.preview %}
         {%- comment -%}
           A preview may be a video file rather than an image. Rendering one through the

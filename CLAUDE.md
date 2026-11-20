@@ -10,7 +10,8 @@ re-create Pages: `gh api -X POST repos/haoyangliu59/haoyangliu59.github.io/pages
 
 ## Workflow
 
-Edit locally → preview → commit → push to `main`. The user confirms before anything is pushed.
+Edit locally → verify (build or preview) → commit → push to `main`. Standing instruction from the user
+(2026-11-19): push each requested change right away without asking, then verify it on the live site.
 A push runs `.github/workflows/deploy.yml`, which builds the site and publishes it to the `gh-pages`
 branch (≈1–2 min); GitHub Pages serves that branch.
 
@@ -44,7 +45,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   `home.liquid` must match.
 - `_includes/header.liquid` and `_layouts/bib.liquid` shadow al_folio_core files and are tracked in
   `.al-folio-overrides.yml` (`bundle exec al-folio upgrade overrides accept <path>` after intentional edits).
-  `bib.liquid` adds `abbr2`/`abbr2_url` (second badge) and `venue_link`/`venue_link_name` (custom button);
+  `bib.liquid` adds `abbr2`/`abbr3` + `_url` (extra badges) and `venue_link`/`venue_link_name` (custom button);
   those fields are in `filtered_bibtex_keywords`. Co-first authors: `{Liu*, Haoyang}` + `note`.
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
