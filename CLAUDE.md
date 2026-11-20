@@ -3,12 +3,10 @@
 Personal single-page website of Haoyang Liu, built on the [al-folio](https://github.com/alshedivat/al-folio) v1.2 starter (Jekyll).
 Address https://haoyangliu59.github.io, source at https://github.com/haoyangliu59/haoyangliu59.github.io.
 
-**Currently OFFLINE (since 2026-10-24, at the user's request):** the repo was made private, which stops GitHub
-Pages serving it on the free plan (the site returns 404). Pages can't simply be disabled on a user-site repo
-(API returns 422). Everything is kept: main + gh-pages branches, history, Pages config (source gh-pages, /).
-To bring it back: `gh repo edit haoyangliu59/haoyangliu59.github.io --visibility public
---accept-visibility-change-consequences`, then check `gh api repos/haoyangliu59/haoyangliu59.github.io/pages`
-(re-create with source gh-pages if missing) and that the site loads. Only do this when the user asks.
+Taking the site offline: Pages cannot be disabled on a user-site repo (API 422); making the repo private takes
+it down on the free plan, and GitHub then deletes the Pages config. To bring it back, make the repo public and
+re-create Pages: `gh api -X POST repos/haoyangliu59/haoyangliu59.github.io/pages -f "source[branch]=gh-pages"
+-f "source[path]=/" -f build_type=legacy` (done 2026-11-19 after a month offline).
 
 ## Workflow
 
