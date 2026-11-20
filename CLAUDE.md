@@ -65,8 +65,8 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 - `assets/css/custom.css` (linked from `header.liquid`) holds all site CSS: the navy accent colour
   (`--global-theme-color` #1d3c78 light / #7ea6e0 dark, replacing the theme's purple), the icon size under the photo,
   section heading style, and the navbar collapse breakpoint moved from 576px to 768px (`navbar-expand-md`).
-  Typeface is EB Garamond site-wide (user's choice, 2026-11-20), loaded from Google Fonts via
-  `third_party_libraries.google_fonts` in `_config.yml`; base size is 19px (Garamond's small x-height) on the
+  Typeface is EB Garamond site-wide (user's choice, 2026-11-20), self-hosted: woff2 files + `eb-garamond.css` in
+  `assets/fonts/`, linked via `third_party_libraries.google_fonts` in `_config.yml` (no request to Google); base size is 19px (Garamond's small x-height) on the
   theme's 930px column. Large-screen scaling was tried and removed at the user's request.
   Rules that must beat the theme's `!important` declarations go inside `@layer components`.
 
