@@ -152,14 +152,12 @@ layout: default
       </div>
     {% endif %}
 
-    <!-- Personal (_data/personal.yml, in file order) -->
+    <!-- Personal (_data/personal.yml, in file order): each item is one paragraph -->
     {% if site.data.personal and site.data.personal.size > 0 %}
       <h2 id="personal">personal</h2>
-      <ul>
-        {% for fact in site.data.personal %}
-          <li>{{ fact | markdownify | remove: '<p>' | remove: '</p>' | emojify }}</li>
-        {% endfor %}
-      </ul>
+      {% for paragraph in site.data.personal %}
+        {{ paragraph | markdownify | emojify }}
+      {% endfor %}
     {% endif %}
   </article>
 </div>

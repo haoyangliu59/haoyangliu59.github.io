@@ -36,7 +36,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 | education    | `_data/education.yml`                                              |
 | publications and preprints | `_bibliography/papers.bib` (jekyll-scholar; see the field list at its top) |
 | projects     | `_data/projects.yml`                                               |
-| personal     | `_data/personal.yml` (list of Markdown strings: personal anecdotes)  |
+| personal     | `_data/personal.yml` (Markdown paragraphs, no bullets: hobbies)      |
 | social icons | `_data/socials.yml` (Google Scholar, email, LinkedIn), shown under the profile photo |
 
 - `_layouts/home.liquid` renders the sections; `_includes/header.liquid` is the navbar with anchor links
