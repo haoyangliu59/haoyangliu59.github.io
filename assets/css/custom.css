@@ -194,3 +194,18 @@ article > h2[id]::after {
   font-weight: 700;
   color: var(--global-theme-color);
 }
+
+/* Navbar section links: uppercase in the accent colour (navy) instead of the theme's lowercase
+ * black. Slightly smaller with letter spacing so the six capitalised labels still fit on one line
+ * at the 768px collapse breakpoint. */
+.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: var(--global-theme-color);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: var(--global-theme-color);
+  opacity: 0.75;
+}
