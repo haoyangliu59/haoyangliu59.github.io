@@ -14,6 +14,35 @@ html[data-theme="dark"] {
   --global-hover-color: #7ea6e0;
 }
 
+/* Typeface: EB Garamond everywhere (loaded from Google Fonts via third_party_libraries.google_fonts in
+ * _config.yml), replacing the theme's Roboto. Garamond has a small x-height, so the base size goes from
+ * 16px to 19px to read about as large as Roboto did; everything sized in rem follows. Its lightest
+ * weight is 400, so the theme's light (300) body text renders as regular. Code keeps its monospace font. */
+html {
+  font-size: 19px;
+}
+
+body,
+.navbar,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+.btn,
+.badge,
+.popover,
+.tooltip {
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+}
+
+body {
+  font-weight: 400;
+}
+
 /* Social icons (_layouts/home.liquid): under the profile photo, or under the bio when there is no
  * photo. The theme sizes them at 4rem for its bottom-of-page placement; here they are smaller. */
 .post .social {
