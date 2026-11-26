@@ -216,3 +216,9 @@ article > h2[id]::after {
 html[data-theme="dark"] .construction-note {
   color: #ff8a80;
 }
+
+/* Key terms in the bio (_pages/about.md, kramdown span class .accent): bold in the accent colour (navy). */
+.post .accent {
+  color: var(--global-theme-color);
+  font-weight: 700;
+}
