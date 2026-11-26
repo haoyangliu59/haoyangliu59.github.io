@@ -116,7 +116,16 @@ layout: default
     <!-- Publications (_bibliography/papers.bib, grouped by year) -->
     <h2 id="publications">publications and preprints</h2>
     <div class="publications">
-      {% bibliography %}
+      {% comment %}
+        Year labels come from jekyll-scholar (group_by: year); a note is appended to the 2023 label by string
+        replacement, since the plugin has no per-group text.
+      {% endcomment %}
+      {% capture bibliography_html %}{% bibliography %}{% endcapture %}
+      {{
+        bibliography_html
+        | replace: '<h2 class="bibliography">2023</h2>',
+          '<h2 class="bibliography">2023 <span class="year-note">(back when I was still a neuroscience student…)</span></h2>'
+      }}
     </div>
 
     <!-- Projects (_data/projects.yml, in file order) -->
