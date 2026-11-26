@@ -36,7 +36,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
 | news         | `_news/*.md`, one file per item, `inline: true`, ordered by `date` |
 | education    | `_data/education.yml`                                              |
 | publications and preprints | `_bibliography/papers.bib` (jekyll-scholar; see the field list at its top) |
-| projects     | `_data/projects.yml`                                               |
+| projects & experiences | `_data/projects.yml` (empty for now: shows "Coming soon...")    |
 | personal     | `_data/personal.yml` (Markdown paragraphs, no bullets: hobbies)      |
 | social icons | `_data/socials.yml` (Google Scholar, email, LinkedIn), shown under the profile photo |
 
@@ -65,7 +65,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   seal (from marcomm.washu.edu); WashU allows the seal only with MarComm's prior permission.
 - `assets/css/custom.css` (linked from `header.liquid`) holds all site CSS: the navy accent colour
   (`--global-theme-color` #1d3c78 light / #7ea6e0 dark, replacing the theme's purple), the icon size under the photo,
-  section heading style, and the navbar collapse breakpoint moved from 576px to 768px (`navbar-expand-md`).
+  section heading style, and the navbar collapse breakpoint moved from 576px to 992px (`navbar-expand-lg`, so "projects & experiences" never wraps).
   Typeface is EB Garamond site-wide (user's choice, 2026-11-20), self-hosted: woff2 files + `eb-garamond.css` in
   `assets/fonts/`, linked via `third_party_libraries.google_fonts` in `_config.yml` (no request to Google); base size is 19px (Garamond's small x-height) on the
   theme's 930px column. Large-screen scaling was tried and removed at the user's request.

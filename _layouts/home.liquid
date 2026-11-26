@@ -3,7 +3,8 @@ layout: default
 ---
 {% comment %}
   Single-page home layout (site-owned; al_folio_core has no equivalent).
-  Section order: about (page content, social icons under the photo) > news > education > publications > projects
+  Section order: about (page content, social icons under the photo) > news > education > publications > projects &
+  experiences
   > personal.
   The h2 ids below are the anchors used by the navbar in _includes/header.liquid.
   Content sources: _pages/about.md, _news/, _data/education.yml, _bibliography/papers.bib, _data/projects.yml,
@@ -128,9 +129,11 @@ layout: default
       }}
     </div>
 
-    <!-- Projects (_data/projects.yml, in file order) -->
-    {% if site.data.projects and site.data.projects.size > 0 %}
-      <h2 id="projects">projects</h2>
+    <!-- Projects & experiences (_data/projects.yml, in file order); the heading stays when the list is empty -->
+    <h2 id="projects-experiences">projects &amp; experiences</h2>
+    {% if site.data.projects == nil or site.data.projects.size == 0 %}
+      <p>Coming soon...</p>
+    {% else %}
       <div class="table-responsive">
         <table class="table table-sm table-borderless">
           {% for project in site.data.projects %}
