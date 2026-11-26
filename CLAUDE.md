@@ -49,7 +49,7 @@ One page (`_pages/about.md`, layout `home`) with sections, in this order:
   those fields are in `filtered_bibtex_keywords`. Co-first authors: `{Liu*, Haoyang}` + `note`.
 - Site-wide settings (name, url, feature flags, scholar name highlighting) are in `_config.yml`.
   `url` must stay `https://haoyangliu59.github.io` and `baseurl` empty (user site).
-- Profile photo: `assets/img/profile.webp` (cycling photo on the WashU quad, square 600px crop centred on the head,
+- Profile photo: `assets/img/profile.webp` (cycling photo on the WashU quad, square 600px crop with the head at 3/4 of the width,
   metadata stripped), shown as a circle (`image_circular: true`) via `profile.image` in `_pages/about.md`. `avatar-placeholder.svg` stays as the fallback: the user wants a
   placeholder rather than no photo.
 - `imagemagick.enabled: false` and CI does not install ImageMagick or Python (keeps builds ~1 min and off

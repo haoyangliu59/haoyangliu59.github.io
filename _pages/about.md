@@ -5,7 +5,7 @@ permalink: /
 
 profile:
   align: right
-  image: profile.webp # file in assets/img/: square 600px crop with the head at the centre, metadata stripped
+  image: profile.webp # file in assets/img/: square 600px crop, head at 3/4 of the width and centred vertically, metadata stripped
   image_circular: true # shown as a circle
 
 social: true # social icons under the profile photo (edit _data/socials.yml)
