@@ -5,7 +5,7 @@ permalink: /
 
 profile:
   align: right
-  image: avatar-placeholder.svg # file in assets/img/; replace with a real photo (resize to ~800px wide first)
+  image: profile.webp # file in assets/img/ (800px wide, metadata stripped); resize new photos before committing
   image_circular: false # crops the image to make it circular
 
 social: true # social icons under the profile photo (edit _data/socials.yml)
