@@ -222,3 +222,11 @@ html[data-theme="dark"] .construction-note {
   color: var(--global-theme-color);
   font-weight: 700;
 }
+
+/* Note next to a publication year label (_layouts/home.liquid appends it to the 2023 label). */
+.publications h2.bibliography .year-note {
+  font-size: 1rem; /* the theme sizes spans in headings at 1.5rem */
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 0.25rem;
+}
