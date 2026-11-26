@@ -206,3 +206,13 @@ article > h2[id]::after {
   color: var(--global-theme-color);
   opacity: 0.75;
 }
+
+/* "Under construction" line at the end of the bio (_pages/about.md, kramdown class .construction-note). */
+.construction-note {
+  color: #b3261e;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .construction-note {
+  color: #ff8a80;
+}
