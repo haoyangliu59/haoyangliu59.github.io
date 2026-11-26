@@ -56,15 +56,15 @@ article > .social {
   text-align: left;
 }
 
-/* Navbar: collapse into the menu button below 768px instead of the theme's 576px, so the seven
- * section links never wrap. The header override uses .navbar-expand-md; these rules mirror the
+/* Navbar: collapse into the menu button below 992px instead of the theme's 576px, so the six
+ * section links never wrap. The header override uses .navbar-expand-lg; these rules mirror the
  * theme's .navbar-expand-sm ones (tailwind.css) and its collapsed-menu styles (_navbar.scss) at
- * the md breakpoint. */
+ * the lg breakpoint. */
 @layer components {
   /* Same cascade layer as the theme's `.collapse { display: none !important }`: for !important
    * declarations a layered rule beats an unlayered one, so this must live in the layer too. */
-  @media (min-width: 768px) {
-    .navbar-expand-md .navbar-collapse {
+  @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
       flex-basis: auto;
       width: auto;
       display: flex !important;
@@ -72,26 +72,26 @@ article > .social {
   }
 }
 
-@media (min-width: 768px) {
-  .navbar-expand-md .navbar-nav {
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav {
     flex-direction: row;
   }
-  .navbar-expand-md .navbar-nav .nav-link {
+  .navbar-expand-lg .navbar-nav .nav-link {
     padding: 0.5rem;
   }
-  .navbar-expand-md .navbar-toggler {
+  .navbar-expand-lg .navbar-toggler {
     display: none;
   }
 }
 
-@media (max-width: 767.98px) {
-  .navbar-expand-md > .container {
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (min-width: 576px) and (max-width: 991.98px) {
   .navbar .navbar-toggler-main {
     margin-left: auto;
   }
@@ -194,7 +194,7 @@ article > h2[id]::after {
 
 /* Navbar section links: uppercase in the accent colour (navy) instead of the theme's lowercase
  * black. Slightly smaller with letter spacing so the six capitalised labels still fit on one line
- * at the 768px collapse breakpoint. */
+ * at the 992px collapse breakpoint. */
 .navbar.navbar-light .navbar-nav .nav-item .nav-link {
   color: var(--global-theme-color);
   text-transform: uppercase;
