@@ -14,7 +14,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: Haoyang Liu, personal website, research # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: favicon.png # browser-tab icon in /assets/img/ (64px, the 劉 calligraphy cropped from liu.jpeg); an emoji also works
+icon: favicon.png # browser-tab icon in /assets/img/ (128px, the user's own 刘 signature, strokes thickened for small sizes)
 apple_touch_icon: apple-touch-icon.png # 180x180 PNG in /assets/img/, used for iOS home-screen bookmarks
 
 url: https://haoyangliu59.github.io # the base hostname & protocol for your site
